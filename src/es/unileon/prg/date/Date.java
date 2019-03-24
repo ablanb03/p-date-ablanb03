@@ -1,11 +1,38 @@
 package es.unileon.prg.date;
 
+/**
+ * Clase que representa una fecha (day/month/year)
+ * 
+ * @author ablanb03
+ */
+
 public class Date {
-
+	
+	/**
+	 * Dia
+	 */
 	private int day;
+	
+	/**
+	 * Mes
+	 */
 	private int month;
+	
+	/**
+	 * Anio
+	 */
 	private int year;
-
+	
+	/**
+	 * Constructor de la clase. Crea una fecha (Dia/Mes/Anio)
+	 * 
+	 * @param day
+	 * 		Dia
+	 * @param month
+	 * 		Mes
+	 * @param year
+	 * 		Anio
+	 */
 	public Date(int day, int month, int year) throws DateException{
 		this.year = year;
 		if (month < 1 || month > 12) {
@@ -39,18 +66,42 @@ public class Date {
 		}
 	}
 	
+	/**
+	 * Obtiene el anio de la fecha
+	 * 
+	 * @return Retorna el parametro year
+	 */
 	public int getYear(){
 		return this.year;
 	}
 	
+	/**
+	 * Obtiene el mes de la fecha
+	 * 
+	 * @return Retorna el parametro month
+	 */
 	public int getMonth(){
 		return this.month;
 	}
 	
+	/**
+	 * Obtiene el dia de la fecha
+	 * 
+	 * @return Retorna el parametro day
+	 */
 	public int getDay(){
 		return this.day;
 	}
 	
+	
+	/**
+	 * Comprueba si el anio de la fecha es el mismo que el de otra que se pasa como parametro. Se utiliza un if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintos
+	 */
 	public boolean isSameYear(Date date){
 		boolean isSameYear=false;
 		if(this.year==date.getYear()){
@@ -61,6 +112,14 @@ public class Date {
 		return isSameYear;
 	}
 	
+	/**
+	 * Comprueba si el mes de la fecha es el mismo que el de otra que se pasa como parametro. Se utiliza un if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintos
+	 */
 	public boolean isSameMonth(Date date){
 		boolean isSameMonth=false;
 		if(this.month==date.getMonth()){
@@ -71,6 +130,14 @@ public class Date {
 		return isSameMonth;
 	}
 	
+	/**
+	 * Comprueba si el dia de la fecha es el mismo que el de otra que se pasa como parametro. Se utiliza un if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintos
+	 */
 	public boolean isSameDay(Date date){
 		boolean isSameDay=false;
 		if(this.day==date.getDay()){
@@ -81,6 +148,14 @@ public class Date {
 		return isSameDay;
 	}
 	
+	/**
+	 * Comprueba si la fecha es la misma que la de otra que se pasa como parametro. Se utiliza un if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintas
+	 */
 	public boolean isSame(Date date){
 		boolean isSame=false;
 		if((isSameYear(date)==true)&&(isSameMonth(date)==true)&&(isSameDay(date)==true)){
@@ -91,6 +166,14 @@ public class Date {
 		return isSame;
 	}
 	
+	/**
+	 * Comprueba si el anio de la fecha es el mismo que el de otra que se pasa como parametro sin utilizar if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintos
+	 */
 	public boolean isSameYearNoIf(Date date){
 		boolean isSameYearNoIf=false;
 		int otherYear=date.getYear();
@@ -101,18 +184,42 @@ public class Date {
 		return isSameYearNoIf;
 	}
 	
+	/**
+	 * Comprueba si el mes de la fecha es el mismo que el de otra que se pasa como parametro sin utilizar if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintos
+	 */
 	public boolean isSameMonthNoIf(Date date){
 		boolean isSameMonthNoIf=false;
 		isSameMonthNoIf=this.month==date.getMonth();
 		return isSameMonthNoIf;
 	}
 	
+	/**
+	 * Comprueba si el dia de la fecha es el mismo que el de otra que se pasa como parametro sin utilizar if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintos
+	 */
 	public boolean isSameDayNoIf(Date date){
 		boolean isSameDayNoIf=false;
 		isSameDayNoIf=!(this.month!=date.getMonth());
 		return isSameDayNoIf;
 	}
 	
+	/**
+	 * Comprueba si la fecha es la misma que la de otra que se pasa como parametro sin utilizar if
+	 *
+	 * @param date
+	 * 		fecha a comparar
+	 * 
+	 * @return Retorna true si son iguales y false si son distintas
+	 */
 	public boolean isSameNoIf(Date date){
 		boolean isSameNoIf=false;
 		int isSameYearNoIf=(isSameYearNoIf(date)) ? 1:0;
@@ -143,6 +250,11 @@ public class Date {
 		return isSameNoIf;
 	}
 	
+	/**
+	 * Obtiene un String con el nombre del mes
+	 * 
+	 * @return Retorna el nombre del mes
+	 */
 	public String monthName(){
 		String monthName=new String();
 		switch (this.month){
@@ -186,6 +298,11 @@ public class Date {
 		return monthName;
 	}
 	
+	/**
+	 * Comprueba si el dia del mes es valido
+	 * 
+	 * @return Retorna true si el dia existe en el mes y false si no existe en el mes
+	 */
 	public boolean checkDayOfTheMonth(){
 		boolean checkDayOfTheMonth=false;
 		switch (this.month){
@@ -214,6 +331,11 @@ public class Date {
 		return checkDayOfTheMonth;
 	}
 	
+	/**
+	 * Obtiene un String con la estacion del anio en la que se encuentra el mes
+	 * 
+	 * @return Retorna el nombre de la estacion
+	 */
 	public String seasonOfTheMonth(){
 		String seasonOfTheMonth=new String();
 		if((this.month==12)||((this.month>=1)&&(this.month<=2))){
@@ -228,6 +350,11 @@ public class Date {
 		return seasonOfTheMonth;
 	}
 	
+	/**
+	 * Obtiene el numero de meses restantes para el final del anio
+	 * 
+	 * @return Retorna el numero de meses hasta el final del anio
+	 */
 	public int monthsLeft(){
 		int monthsLeft=0;
 		switch (this.month){
@@ -271,12 +398,22 @@ public class Date {
 		return monthsLeft;
 	}
 	
+	/**
+	 * Obtiene un String con la fecha
+	 * 
+	 * @return Retorna el String con la fecha (Dia/Mes/Anio)
+	 */
 	public String toString(){
 		String dateString;
 		dateString=new String(this.day + "/" + this.month + "/" + this.year);
 		return dateString;
 	}
 	
+	/**
+	 * Obtiene un String con las fechas restantes hasta el final del mes
+	 * 
+	 * @return Retorna las fechas hasta el final del mes
+	 */
 	public String datesUntilEndOfTheMonth(){
 		StringBuffer datesUntilEndOfTheMonth;
 		datesUntilEndOfTheMonth=new StringBuffer();
@@ -298,6 +435,11 @@ public class Date {
 		return datesUntilEndOfTheMonth.toString();
 	}
 	
+	/**
+	 * Obtiene un String con el nombre de los meses con el mismo numero de dias
+	 * 
+	 * @return Retorna los meses con el mismo numero de dias
+	 */
 	public String monthsWithSameNumberOfDays(){
 		String monthsWithSameNumberOfDays=new String();
 		int totalDays=0;
@@ -315,6 +457,11 @@ public class Date {
 		return monthsWithSameNumberOfDays;
 	}
 	
+	/**
+	 * Obtiene los dias del anio que han pasado hasta la fecha
+	 * 
+	 * @return Retorna el numero de dias que han pasado
+	 */
 	public int daysSinceFirstOfTheYear(){
 		int daysSinceFirstOfTheYear=0;
 		switch (this.month){
@@ -358,6 +505,11 @@ public class Date {
 		return daysSinceFirstOfTheYear;
 	}
 	
+	/**
+	 * Obtiene un el numero de intentos que han sido necesarios para que generando una fecha aleatoria se haya acertado la dada. Usa un while
+	 * 
+	 * @return Retorna el numero de intentos
+	 */
 	public int attemptsToGuessDateWhile(){
 		int attemptsToGuessDateWhile=0;
 		int generatedMonth=0;
@@ -381,6 +533,11 @@ public class Date {
 		return attemptsToGuessDateWhile;
 	}
 	
+	/**
+	 * Obtiene un el numero de intentos que han sido necesarios para que generando una fecha aleatoria se haya acertado la dada. Usa un do-while
+	 * 
+	 * @return Retorna el numero de intentos
+	 */
 	public int attemptsToGuessDateDoWhile(){
 		int attemptsToGuessDateDoWhile=0;
 		int generatedMonth=0;
@@ -404,6 +561,14 @@ public class Date {
 		return attemptsToGuessDateDoWhile;
 	}
 	
+	/**
+	 * Obtiene el dia de la semana de la fecha a partir del dia de la semana del primer dia del anio que se le ha pasado como parametro
+	 *
+	 * @param firsWeekdayOfTheYear
+	 * 		Dia de la semana del 1 de enero
+	 * 
+	 * @return Retorna el numero de intentos
+	 */
 	public String dayOfTheWeek(String firsWeekdayOfTheYear){
 		String dayOfTheWeek=new String();
 		int totalDays=daysSinceFirstOfTheYear();
