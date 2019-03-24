@@ -31,8 +31,8 @@
                packagenames="${paquetes}" destdir="doc"
                verbose="true" author="true"
                access="private" splitindex="true"
-               version="true" windowtitle="${titulo}"
-               doctitle="${titulo}"/>
+               version="true" windowtitle="Clase Date"
+               doctitle="Clase Date"/>
       <echo message="Documenting...done"/>
     </target>
 
